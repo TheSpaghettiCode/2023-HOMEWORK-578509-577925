@@ -86,6 +86,11 @@ public class Stanza {
         return this.toString();
     }
 
+
+	public void setNumeroAttrezzi(int numeroAttrezzi){
+		this.numeroAttrezzi = numeroAttrezzi;
+	}
+
     /**
      * Restituisce la collezione di attrezzi presenti nella stanza.
      * @return la collezione di attrezzi nella stanza.
