@@ -55,12 +55,12 @@ public class Borsa {
 	return this.getAttrezzo(nomeAttrezzo)!=null;
 	}
 	
-	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
+	public Attrezzo removeAttrezzo(String nomeAttrezzo, Partita partita) {
 	Attrezzo a = null;
 	for (int i= 0; i<this.numeroAttrezzi; i++)
 		if (this.attrezzi[i].getNome().equals(nomeAttrezzo)) {
 			a = attrezzi[i];
-			Labirinto.getStanzaCorrente().addAttrezzo(a);
+			partita.getStanzaCorrente().addAttrezzo(a);
 			this.numeroAttrezzi--;
 			attrezzi[i] = null;
 		}

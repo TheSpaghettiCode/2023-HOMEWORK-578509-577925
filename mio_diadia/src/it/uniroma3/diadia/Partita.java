@@ -17,12 +17,22 @@ public class Partita {
 	private Labirinto labirinto;
 	private Giocatore giocatore;
 	private boolean finita;
+	private Stanza StanzaCorrente;
 	
 	public Partita(){
 		labirinto = new Labirinto();
 		giocatore = new Giocatore();
 		this.finita = false;
 		}
+
+	public void setStanzaCorrente(Stanza StanzaCorrente) {
+		this.stanzaCorrente = StanzaCorrente;
+	}
+
+	static public Stanza getStanzaCorrente() {
+		return this.stanzaCorrente;
+	}
+
 		
 		/**
 		 * Restituisce vero se e solo se la partita e' finita
@@ -46,7 +56,7 @@ public class Partita {
 	*/
 		public boolean vinta() {
 			//dopo cambio getStanzaCorrente in static, prima era this.labirinto. etc.
-			return Labirinto.getStanzaCorrente() == this.labirinto.getStanzaVincente();
+			return this.getStanzaCorrente() == this.labirinto.getStanzaVincente();
 		}
 		
 		public Labirinto getLabirinto(){

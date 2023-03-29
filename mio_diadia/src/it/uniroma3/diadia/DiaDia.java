@@ -63,13 +63,13 @@ public class DiaDia {
 		else if (comandoDaEseguire.getNome().equals("aiuto"))
 			comandoDaEseguire.aiuto(console);
 		else if (comandoDaEseguire.getNome().equals("prendi"))
-			comandoDaEseguire.raccogliAttrezzo();
+			comandoDaEseguire.raccogliAttrezzo(console);
 		else if (comandoDaEseguire.getNome().equals("posa"))
-			comandoDaEseguire.posaAttrezzo();
+			comandoDaEseguire.posaAttrezzo(console);
 		else
 			console.mostraMessaggio("Comando sconosciuto");
 			//System.out.println("Comando sconosciuto");
-		console.mostraMessaggio(partita.getLabirinto().getStanzaCorrente().getDescrizione());
+		console.mostraMessaggio(partita.getStanzaCorrente().getDescrizione());
 		console.mostraMessaggio(partita.getGiocatore().getDescrizione());
 		console.mostraMessaggio(partita.getGiocatore().getBorsa().getDescrizione());
 		

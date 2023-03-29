@@ -91,18 +91,18 @@ public class Comando {
 	public void vai(IOConsole console) {
 		if(this.parametro == null) {
 			//System.out.println("Dove vuoi andare?");
-			console.mostraMessaggio("Dove vuoi andare?");
+			console.mostraMessaggio("Dove vuoi andare?\n");
 			//Scanner ScannerDirezione = new Scanner(System.in);
 			//this.parametro = ScannerDirezione.nextLine();
 			this.parametro = console.leggiRiga();
 		}
 		Stanza prossimaStanza = null;
 		//dopo cambio getStanzaCorrente in static, prima era this.labirinto. etc.
-		prossimaStanza = Labirinto.getStanzaCorrente().getStanzaAdiacente(this.parametro);
+		prossimaStanza = this.partita.getStanzaCorrente().getStanzaAdiacente(this.parametro);
 		if (prossimaStanza == null)
-			System.out.println("Direzione inesistente");
+			console.mostraMessaggio("Direzione inesistente\n");
 		else {
-			this.labirinto.setStanzaCorrente(prossimaStanza);
+			this.partita.setStanzaCorrente(prossimaStanza);
 			int cfu = this.giocatore.getCfu();
 			this.giocatore.setCfu(--cfu);
 		}
@@ -128,24 +128,24 @@ public class Comando {
 	 * comando che raccoglie, se c'e', un oggetto nella stanza corrente
 	 * e lo inserisce nella borsa  
 	 */
-	public void raccogliAttrezzo (){
+	public void raccogliAttrezzo (IOConsole console){
 		if(this.parametro == null) {
-			System.out.println("Che attrezzo vuoi prendere?");
+			console.mostraMessaggio("Che attrezzo vuoi prendere?\n");
 			Scanner scannerAttrezzo = new Scanner(System.in);
 			this.parametro = scannerAttrezzo.nextLine();
 		}
 		Attrezzo attrezzo = null;
 		//dopo cambio getStanzaCorrente in static, prima era this.labirinto. etc.
-		attrezzo = Labirinto.getStanzaCorrente().getAttrezzo(this.parametro);
+		attrezzo = this.partita.getStanzaCorrente().getAttrezzo(this.parametro);
 		if(attrezzo == null)
-			System.out.println("oggetto non trovato");
+			console.mostraMessaggio("oggetto non trovato\n");
 		else {
 			this.giocatore.setAttrezzo(attrezzo);
 			//dopo cambio getStanzaCorrente in static, prima era this.labirinto. etc.
-			if(Labirinto.getStanzaCorrente().removeAttrezzo(attrezzo))
-				System.out.println("Attrezzo aggiunto alla borsa!");
+			if(this.partita.getStanzaCorrente().removeAttrezzo(attrezzo, partita))
+				console.mostraMessaggio("Attrezzo aggiunto alla borsa!\n");
 			else
-				System.out.println("Errore nella rimozione dell'oggetto");
+				console.mostraMessaggio("Errore nella rimozione dell'oggetto\n");
 		}
 	}
 	
@@ -153,17 +153,17 @@ public class Comando {
 	 * comando che posa, se c'e', un oggetto nella stanza corrente
 	 * e lo rimuove dalla borsa
 	 */
-	public void posaAttrezzo() {
+	public void posaAttrezzo(IOConsole console) {
 		if(this.parametro == null) {
-			System.out.println("Che attrezzo vuoi posare?");
+			console.mostraMessaggio("Che attrezzo vuoi posare?\n");
 			Scanner scannerAttrezzo = new Scanner(System.in);
 			this.parametro = scannerAttrezzo.nextLine();
 		}
 		if(this.borsa.getAttrezzo(this.parametro) == null)
-			System.out.println("oggetto non trovato nella borsa");
+			console.mostraMessaggio("oggetto non trovato nella borsa\n");
 		else {
 			this.borsa.removeAttrezzo(this.parametro);
-			System.out.println("Attrezzo rimosso alla borsa!");
+			console.mostraMessaggio("Attrezzo rimosso alla borsa!\n");
 		}
 	}
 	
