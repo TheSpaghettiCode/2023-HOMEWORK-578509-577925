@@ -8,8 +8,8 @@ import org.junit.Test;
 public class StanzaTest {
 	Stanza principale;
 	Stanza adiacente;
-	String stanzeAdiacenti[] = {"stanzaNordTest", "stanzaSudTest", "stanzaEstTest", "stanzaOvestTest"};
-	String direzioni[] = {"nord", "sud", "est", "ovest"};
+	//String stanzeAdiacenti[] = {"stanzaNordTest", "stanzaSudTest", "stanzaEstTest", "stanzaOvestTest"};
+	//String direzioni[] = {"nord", "sud", "est", "ovest"};
 	String attrezzi[] = {"osso", "spada", "lama", "lanterna", "coltello", "pietra", "chiavi", "pozione", "scudo", "pergamena"};
 
 @Before
@@ -21,11 +21,11 @@ public void setUp(){
 
 //factory methods
 
-private Stanza setStanzaAdiacenteTest(int i){
+/*private Stanza setStanzaAdiacenteTest(int i){
 	principale.impostaStanzaAdiacente(direzioni[i],stanzeAdiacenti[i]);
 	return stanzeAdiacenti[i];
 }
-
+*/
 /*private Stanza setTutteStanzeAdiacentiTest(){
 	for(int i;i<direioni.length;i++){
 
