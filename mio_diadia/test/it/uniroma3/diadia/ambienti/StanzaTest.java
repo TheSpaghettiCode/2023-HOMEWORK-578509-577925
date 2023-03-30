@@ -7,7 +7,8 @@ import org.junit.Test;
 
 public class StanzaTest {
 	Stanza principale;
-	Stanza stanzeAdiacenti[] = {"stanzaNordTest", "stanzaSudTest", "stanzaEstTest", "stanzaOvestTest"};
+	Stanza adiacente;
+	String stanzeAdiacenti[] = {"stanzaNordTest", "stanzaSudTest", "stanzaEstTest", "stanzaOvestTest"};
 	String direzioni[] = {"nord", "sud", "est", "ovest"};
 	String attrezzi[] = {"osso", "spada", "lama", "lanterna", "coltello", "pietra", "chiavi", "pozione", "scudo", "pergamena"};
 
@@ -15,7 +16,7 @@ public class StanzaTest {
 public void setUp(){
 	principale = new Stanza("StanzaPrincipaleTest");
 	adiacente = new Stanza("StanzaAdiacenteTest");
-	attrezzo = new Attrezzo("spada",4)
+	attrezzo = new Attrezzo("spada",4);
 }
 
 //factory methods
