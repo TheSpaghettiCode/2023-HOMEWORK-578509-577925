@@ -30,7 +30,7 @@ public class Partita {
 		this.stanzaCorrente = StanzaCorrente;
 	}
 
-	static public Stanza getStanzaCorrente() {
+	public Stanza getStanzaCorrente() {
 		return this.stanzaCorrente;
 	}
 
