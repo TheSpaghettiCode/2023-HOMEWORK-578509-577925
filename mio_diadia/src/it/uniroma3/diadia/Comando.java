@@ -142,7 +142,7 @@ public class Comando {
 		else {
 			this.giocatore.setAttrezzo(attrezzo);
 			//dopo cambio getStanzaCorrente in static, prima era this.labirinto. etc.
-			if(this.partita.getStanzaCorrente().removeAttrezzo(attrezzo, partita))
+			if(this.partita.getStanzaCorrente().removeAttrezzo(attrezzo))
 				console.mostraMessaggio("Attrezzo aggiunto alla borsa!\n");
 			else
 				console.mostraMessaggio("Errore nella rimozione dell'oggetto\n");
@@ -162,7 +162,7 @@ public class Comando {
 		if(this.borsa.getAttrezzo(this.parametro) == null)
 			console.mostraMessaggio("oggetto non trovato nella borsa\n");
 		else {
-			this.borsa.removeAttrezzo(this.parametro);
+			this.borsa.removeAttrezzo(this.parametro, partita);
 			console.mostraMessaggio("Attrezzo rimosso alla borsa!\n");
 		}
 	}
